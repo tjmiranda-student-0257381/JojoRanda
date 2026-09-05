@@ -8,11 +8,12 @@
 </head>
 <body>
     <!-- Floating Background Image -->
+    <!-- CRITICAL: Make sure the file in GitHub is named EXACTLY IMG_4320.PNG -->
     <img src="images/IMG_4320.PNG" alt="JoJo Randa Background" class="floating-bg">
 
     <!-- HEADER (Closes before the main content) -->
     <header>
-            <h1>JoJo Randa's Website</h1>
+        <h1>JoJo Randa's Website</h1>
         
         <!-- Hamburger Icon -->
         <div class="hamburger" id="hamburger" onclick="toggleMenu()">
@@ -33,7 +34,7 @@
     </header> 
     <!-- END OF HEADER -->
 
-        <!-- MAIN CONTENT -->
+    <!-- MAIN CONTENT -->
     <div class="container">
         <h2>Welcome to JoJo Randa Services</h2>
         <p>Providing reliable, high-quality assistance in Hanford, CA and surrounding areas. From landscaping and yard maintenance to moving help and pet sitting, I am dedicated to making your life easier.</p>
@@ -41,25 +42,15 @@
         <h3 id="contact">Contact Me</h3>
         <form action="https://formspree.io/f/xbgjalpl" method="POST">
             <label for="subject">Subject *</label>
-                    <select id="subject" name="subject" required>
-                      <option value="" disabled selected>
-                        Select a topic...
-                      </option>
-                      <option value="Landscaping">
-                        Landscaping & yard maintenance
-                      </option>
-                      <option value="Driving">
-                        Driving & package handling
-                      </option>
-                      <option value="Other services">
-                        Pet sitting, cleaning, etc...
-                      </option>
-                      <option value="I want to HIRE you!">
-                        I want to HIRE you!
-                      </option>
-                      <option value="Kuyang, broSon!">
-                        kuyang broSon!
-                      </option>
+            <select id="subject" name="subject" required>
+                <option value="" disabled selected>Select a topic...</option>
+                <option value="Landscaping">Landscaping & yard maintenance</option>
+                <option value="Driving">Driving & package handling</option>
+                <option value="Other services">Pet sitting, cleaning, etc...</option>
+                <option value="I want to HIRE you!">I want to HIRE you!</option>
+                <option value="Kuyang, broSon!">kuyang broSon!</option>
+            </select> <!-- THIS WAS MISSING -->
+
             <label>Name:</label>
             <input type="text" name="name" required>
             
@@ -108,7 +99,6 @@
             }
         }
     </script>
-
 
     <!-- FOOTER -->
     <footer>
