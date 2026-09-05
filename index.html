@@ -33,7 +33,7 @@
     </header> 
     <!-- END OF HEADER -->
 
-    <!-- MAIN CONTENT -->
+        <!-- MAIN CONTENT -->
     <div class="container">
         <h2>Welcome to JoJo Randa Services</h2>
         <p>Providing reliable, high-quality assistance in Hanford, CA and surrounding areas. From landscaping and yard maintenance to moving help and pet sitting, I am dedicated to making your life easier.</p>
@@ -42,13 +42,53 @@
         <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
             <label>Name:</label>
             <input type="text" name="name" required>
+            
             <label>Email:</label>
             <input type="email" name="email" required>
+            
+            <label>Contact Number:</label>
+            <input type="tel" name="phone" required>
+            
+            <label>R U A MM?</label>
+            <div style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
+                <label style="display: flex; align-items: center; font-weight: normal;">
+                    <input type="radio" name="is_mm" value="Yes" id="mm_yes" style="width: auto; margin: 0 5px 0 0;" onchange="toggleMasonicFields()"> Yes
+                </label>
+                <label style="display: flex; align-items: center; font-weight: normal;">
+                    <input type="radio" name="is_mm" value="No" id="mm_no" style="width: auto; margin: 0 5px 0 0;" onchange="toggleMasonicFields()" checked> No
+                </label>
+            </div>
+
+            <!-- This section is hidden by default and shown via JavaScript -->
+            <div id="masonic_fields" style="display: none; background: #f4f4f4; padding: 15px; border-radius: 5px; margin-bottom: 15px; border-left: 4px solid #333;">
+                <label>Mother Lodge:</label>
+                <input type="text" name="mother_lodge">
+                
+                <label>Grand Lodge of:</label>
+                <input type="text" name="grand_lodge">
+            </div>
+
             <label>Message:</label>
             <textarea name="message" rows="5" required></textarea>
+            
             <button type="submit">Send Message</button>
         </form>
     </div>
+
+    <!-- Add this script right below the container to make the Yes/No buttons work -->
+    <script>
+        function toggleMasonicFields() {
+            var yesRadio = document.getElementById('mm_yes');
+            var masonicFields = document.getElementById('masonic_fields');
+            
+            if (yesRadio.checked) {
+                masonicFields.style.display = 'block';
+            } else {
+                masonicFields.style.display = 'none';
+            }
+        }
+    </script>
+
 
     <!-- FOOTER -->
     <footer>
