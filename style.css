@@ -149,3 +149,25 @@ button:hover {
         flex: 1 1 30%; 
     }
 }
+
+/* Floating Background Image */
+.floating-bg {
+    position: fixed;
+    bottom: 0;
+    right: 5%;         /* Keeps the image anchored to the bottom right */
+    height: 85vh;      /* Scales the image height based on screen size */
+    width: auto;
+    z-index: -1;       /* Puts the image strictly behind all text and containers */
+    opacity: 0.15;     /* Makes it transparent so you can read the text over it */
+    pointer-events: none; /* Prevents the image from blocking clicks on links/forms */
+}
+
+/* Mobile Responsiveness for the Background */
+@media(max-width: 600px) {
+    .floating-bg {
+        height: 60vh;  /* Shrinks the image on mobile */
+        right: -10%;   /* Shifts it slightly off-screen to give text more room */
+        opacity: 0.1;  /* Lowers opacity slightly more on small screens */
+    }
+}
+
