@@ -7,22 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <body>
     <!-- Floating Background Image -->
-    <img src="images/IMG_4320.PNG" alt="JoJo Randa Background" class="floating-bg">
+    <img src="image_5.png" alt="JoJo Randa Background" class="floating-bg">
 
-    <header>
-        <!-- The rest of your existing header and body content goes here... -->
-
+    <!-- HEADER (Closes before the main content) -->
     <header>
         <h1>JoJo Randa Services</h1>
         
+        <!-- Hamburger Icon -->
         <div class="hamburger" id="hamburger" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
         </div>
         
+        <!-- Navigation Links -->
         <nav id="nav-menu">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -31,14 +30,16 @@
             <a href="terms.html">Terms</a>
             <a href="privacy.html">Privacy</a>
         </nav>
-    </header>
+    </header> 
+    <!-- END OF HEADER -->
 
+    <!-- MAIN CONTENT -->
     <div class="container">
         <h2>Welcome to JoJo Randa Services</h2>
         <p>Providing reliable, high-quality assistance in Hanford, CA and surrounding areas. From landscaping and yard maintenance to moving help and pet sitting, I am dedicated to making your life easier.</p>
         
         <h3 id="contact">Contact Me</h3>
-        <form action="https://formspree.io/f/xbgjalpl" method="POST">
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
             <label>Name:</label>
             <input type="text" name="name" required>
             <label>Email:</label>
@@ -49,10 +50,12 @@
         </form>
     </div>
 
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 Joseph Randa. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript to toggle the menu -->
     <script>
         function toggleMenu() {
             document.getElementById('hamburger').classList.toggle('open');
