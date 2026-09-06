@@ -4,11 +4,11 @@
   const profile = window.UberTracker.profile;
   const backup = window.UberTracker.backup;
 
-  // Service worker is registered relative to this file's own location, so
-  // it scopes itself to whatever folder this app lives in on the host site.
+  // Registered as an absolute path since this app is entered from a
+  // root-level page (/uber.html) as well as this subfolder (reports.html).
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./service-worker.js').catch((e) => console.warn('SW registration failed', e));
+      navigator.serviceWorker.register('/service-worker.js').catch((e) => console.warn('SW registration failed', e));
     });
   }
 

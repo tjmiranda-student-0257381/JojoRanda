@@ -1,20 +1,26 @@
-const CACHE_NAME = 'uber-financials-v2';
+const CACHE_NAME = 'uber-financials-v3';
 const PRECACHE_URLS = [
-  './uber.html',
-  './reports.html',
-  './manifest.json',
-  './css/style.css',
-  './js/db.js',
-  './js/profile.js',
-  './js/backup.js',
-  './js/sheets.js',
-  './js/app.js',
-  './js/reports.js',
-  './icons/icon-192.png',
-  './icons/icon-512.png',
-  './icons/icon-maskable-512.png',
-  './icons/apple-touch-icon.png',
+  '/uber.html',
+  '/uber/reports.html',
+  '/uber/manifest.json',
+  '/uber/css/style.css',
+  '/uber/js/db.js',
+  '/uber/js/profile.js',
+  '/uber/js/backup.js',
+  '/uber/js/sheets.js',
+  '/uber/js/app.js',
+  '/uber/js/reports.js',
+  '/uber/icons/icon-192.png',
+  '/uber/icons/icon-512.png',
+  '/uber/icons/icon-maskable-512.png',
+  '/uber/icons/apple-touch-icon.png',
 ];
+
+// This file lives at the site root (so it can control /uber.html), but it
+// must only ever handle Uber's own pages/assets, never the rest of the site.
+function isUberRequest(pathname) {
+  return pathname === '/uber.html' || pathname.startsWith('/uber/');
+}
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -34,10 +40,9 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   const { request } = event;
+  const url = new URL(request.url);
 
-  // Never intercept anything cross-origin (Google Identity / Sheets API calls
-  // must always hit the network live, never be cached or served offline).
-  if (request.method !== 'GET' || new URL(request.url).origin !== self.location.origin) {
+  if (request.method !== 'GET' || url.origin !== self.location.origin || !isUberRequest(url.pathname)) {
     return;
   }
 
