@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JoJo Randa - About</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
     <header>
@@ -59,11 +58,6 @@
             <iframe src="https://calendar.google.com/calendar/embed?src=joseph.n.randa%40gmail.com&ctz=America%2FLos_Angeles" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
         </div>
 
-        <h3 id="location">My Location</h3>
-        <p>Curious where you're checking in from? This map uses your own device's GPS (with your permission) to drop a live, blinking pin right where you are.</p>
-        <div id="locationStatus" class="location-status" style="display:none;"></div>
-        <div id="map"></div>
-
         <h3>Gallery</h3>
         <p><em>(Yes, this is an AI-generated portrait, but it captured my likeness perfectly! No copyright infringement intended. Huge apologies and respect to the Filipino Kuyang whose original Masonic photo I used as a reference to create this.)</em></p>
         <div class="gallery">
@@ -83,59 +77,5 @@
     }
 </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-    <script>
-    (function () {
-        var mapEl = document.getElementById('map');
-        var statusEl = document.getElementById('locationStatus');
-        if (!mapEl) return;
-
-        function showStatus(message) {
-            statusEl.style.display = 'block';
-            statusEl.textContent = message;
-        }
-
-        // Fallback view (zoomed out on the Philippines/Pacific) until we know
-        // the visitor's real position, or if location access isn't granted.
-        var map = L.map('map').setView([13, 130], 3);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            maxZoom: 19
-        }).addTo(map);
-
-        if (!('geolocation' in navigator)) {
-            showStatus("Your browser doesn't support geolocation, so this map can't show your position.");
-            return;
-        }
-
-        showStatus('Requesting your location… allow access in the browser prompt to see your live pin.');
-
-        navigator.geolocation.getCurrentPosition(
-            function (position) {
-                var lat = position.coords.latitude;
-                var lng = position.coords.longitude;
-                map.setView([lat, lng], 15);
-
-                var blinkIcon = L.divIcon({
-                    className: '',
-                    html: '<span class="blinking-marker"></span>',
-                    iconSize: [16, 16],
-                    iconAnchor: [8, 8]
-                });
-
-                L.marker([lat, lng], { icon: blinkIcon })
-                    .addTo(map)
-                    .bindPopup('You are here')
-                    .openPopup();
-
-                statusEl.style.display = 'none';
-            },
-            function () {
-                showStatus("Location access was denied or unavailable, so the map above is showing a default view instead.");
-            },
-            { enableHighAccuracy: true, timeout: 10000 }
-        );
-    })();
-</script>
 
 </html>
