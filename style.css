@@ -19,9 +19,19 @@ header {
     align-items: center; 
     position: relative; 
 }
-h1 { 
-    margin: 0; 
-    font-size: 1.5rem; 
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.site-logo a {
+    display: inline-flex;
+    line-height: 0;
+}
+.site-logo svg {
+    display: block;
+    height: 40px;
+    width: auto;
 }
 
 .hamburger { 
@@ -107,6 +117,20 @@ button {
 }
 button:hover { 
     background: #555; 
+}
+
+/* Profile Picture (About Page) */
+.profile-pic {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0 25px;
+}
+.profile-pic img {
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #333;
 }
 
 /* 5 Fun Facts About Me (Home Page) */
