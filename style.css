@@ -109,6 +109,65 @@ button:hover {
     background: #555; 
 }
 
+/* 5 Fun Facts About Me (Home Page) */
+.fun-facts {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.fun-facts li a {
+    display: block;
+    background: #f4f4f4;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 16px;
+    border-radius: 5px;
+    border-left: 4px solid #333;
+    transition: background 0.2s ease;
+}
+.fun-facts li a:hover {
+    background: #e3f2fd;
+    border-left-color: #1976d2;
+}
+
+/* Location Map (About Page) */
+.calendar-embed {
+    margin: 15px 0 25px;
+}
+#map {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    z-index: 0;
+}
+.location-status {
+    background: #fff7e6;
+    border-left: 4px solid #d9a441;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+.blinking-marker {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #c0392b;
+    box-shadow: 0 0 0 rgba(192, 57, 43, 0.6);
+    animation: locationPulse 1.6s infinite;
+}
+@keyframes locationPulse {
+    0% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.6); }
+    70% { box-shadow: 0 0 0 16px rgba(192, 57, 43, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); }
+}
+
 /* Service List, Payment Info, and FAQs */
 .service-list { 
     background: #f9f9f9; 
