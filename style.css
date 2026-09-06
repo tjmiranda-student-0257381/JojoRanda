@@ -122,7 +122,8 @@ button:hover {
 /* Profile Picture (About Page) */
 .profile-pic {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin: 15px 0 25px;
 }
 .profile-pic img {
@@ -131,6 +132,15 @@ button:hover {
     height: auto;
     border-radius: 50%;
     border: 3px solid #333;
+}
+.profile-pic figcaption {
+    max-width: 480px;
+    margin-top: 12px;
+    font-size: 0.85em;
+    font-style: italic;
+    line-height: 1.5;
+    text-align: center;
+    color: #666;
 }
 
 /* 5 Fun Facts About Me (Home Page) */
@@ -158,11 +168,6 @@ button:hover {
     border-left-color: #1976d2;
 }
 
-/* Calendar Embed (About Page) */
-.calendar-embed {
-    margin: 15px 0 25px;
-}
-
 /* Service List, Payment Info, and FAQs */
 .service-list { 
     background: #f9f9f9; 
@@ -179,28 +184,10 @@ button:hover {
     margin-bottom: 20px; 
 }
 
-/* About Page Gallery */
-.gallery { 
-    display: flex; 
-    gap: 15px; 
-    flex-wrap: wrap; 
-    margin-top: 20px; 
-}
-.gallery img { 
-    max-width: 100%; 
-    height: auto; 
-    border: 2px solid #ccc; 
-    border-radius: 5px; 
-    flex: 1 1 100%; 
-}
-
 /* Media Queries for Larger Screens */
 @media(min-width: 600px) {
     button { 
         width: auto; 
-    }
-    .gallery img { 
-        flex: 1 1 30%; 
     }
 }
 
